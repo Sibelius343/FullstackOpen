@@ -1,0 +1,25 @@
+User->Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+
+Server->User: URL spa
+
+User->Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+
+Server->User: main.css
+
+User->Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+
+Server->User: main.js
+
+note over User:
+browser starts executing js-code
+that requests JSON data from server 
+end note
+
+User->Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+
+Server->User: data.json
+
+note over User:
+browser executes the event handler
+that renders notes to display
+end note
