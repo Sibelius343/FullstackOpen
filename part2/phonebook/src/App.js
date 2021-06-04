@@ -98,11 +98,19 @@ const App = () => {
         .create(personObject)
         .then(person => {
           setPersons(persons.concat(person))
+          setNotification(`Added ${personObject.name}`)
+          setTimeout(() => {
+            setNotification(null)
+          }, 5000)
         })
-      setNotification(`Added ${personObject.name}`)
-      setTimeout(() => {
-        setNotification(null)
-      }, 5000)
+        .catch(error => {
+          setErrorMessage(error.response.data.error)
+          setTimeout(() => {
+            setErrorMessage(null)
+          }, 5000)
+          console.log(error.response.data)
+        })
+      
 
     } else if (existing[0].number !== newNumber) {
       changeNumber(existing[0])
@@ -146,20 +154,27 @@ const App = () => {
       personService
         .update(person.id, changedPerson)
         .then(returnedPerson => {
+          if (!returnedPerson){
+            setErrorMessage(
+              `Information of ${changedPerson.name} has already been removed from server`
+            )
+            setTimeout(() => {
+              setErrorMessage(null)
+            }, 5000)
+            setPersons(persons.filter(p => p.id !== changedPerson.id))
+          } else {
           setPersons(persons.map(person => person.id !== id ? person : returnedPerson))
         
           setNotification(`Changed ${changedPerson.name}'s number to ${changedPerson.number}`)
           setTimeout(() => {
             setNotification(null)
-          }, 5000)})
+          }, 5000)}})
         .catch(error => {
-          setErrorMessage(
-            `Information of ${changedPerson.name} has already been removed from server`
-          )
+          setErrorMessage(error.response.data.error)
           setTimeout(() => {
             setErrorMessage(null)
           }, 5000)
-          setPersons(persons.filter(p => p.id !== changedPerson.id))
+          console.log(error.response.data)
         })
       
     }
