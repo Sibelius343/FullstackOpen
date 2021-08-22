@@ -1,0 +1,33 @@
+{
+  "name": "library-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sibelius343/FullstackOpen.git"
+  },
+  "author": "Sam Schoenwald",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sibelius343/FullstackOpen/issues"
+  },
+  "homepage": "https://github.com/Sibelius343/FullstackOpen#readme",
+  "dependencies": {
+    "@graphql-tools/schema": "^8.1.2",
+    "apollo-server-express": "^3.1.2",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "graphql": "^15.5.1",
+    "graphql-subscriptions": "^1.2.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.13.5",
+    "mongoose-unique-validator": "^2.0.3",
+    "subscriptions-transport-ws": "^0.9.19",
+    "uuid": "^8.3.2"
+  }
+}
