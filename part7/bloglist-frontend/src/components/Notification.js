@@ -8,7 +8,7 @@ const Notification = ({ message }) => {
   }
 
   return (
-    <Snackbar open={message}>
+    <Snackbar open={!!message}>
       <Alert severity='success' elevation={3} variant='filled'>
         {message}
       </Alert>

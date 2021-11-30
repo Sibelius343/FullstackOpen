@@ -27,7 +27,7 @@ const App = () => {
   const userMatch = useRouteMatch('/users/:id')
   const blogMatch = useRouteMatch('/blogs/:id')
 
-  if(blogs.length !== 0 && loading) {
+  if(blogs && loading) {
     setLoading(false)
   }
 
